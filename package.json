@@ -1,0 +1,35 @@
+{
+  "name": "storefront",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Framework for building pregenerated Magento 2 storefronts based on Gatsby.js and PWA Studio",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "develop": "yarn workspaces run develop",
+    "build": "yarn workspaces run build",
+    "serve": "yarn workspaces run serve"
+  },
+  "keywords": [
+    "magento",
+    "gatsby.js",
+    "magento2",
+    "pwa",
+    "studio",
+    "pregenerated",
+    "static",
+    "scalability"
+  ],
+  "author": "Stanislav Smovdorenko <stan.sm@mobelop.com>",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/neostorefront/storefront/issues"
+  },
+  "homepage": "https://github.com/neostorefront/storefront#readme",
+  "engines": {
+    "node": ">=10.7.0",
+    "yarn": ">=1.12.0"
+  }
+}

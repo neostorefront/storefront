@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "strict": 0,
+    "no-console": "warn",
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "prettier/prettier": "warn"
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["react", "prettier", "jsx-a11y","import","flowtype"]
+}

@@ -1,0 +1,6 @@
+{
+    checkoutConfig(id: 1) {
+        braintree
+        braintree_paypal
+    }
+}

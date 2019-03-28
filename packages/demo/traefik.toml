@@ -1,0 +1,29 @@
+defaultEntryPoints = ["http"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":8099"
+
+[file]
+
+[frontends]
+  [frontends.frontend3]
+  backend = "backend2"
+    [frontends.frontend3.routes.test_1]
+    rule = "Host: localhost; PathPrefix: /graphql"
+  [frontends.frontend2]
+  backend = "backend2"
+    [frontends.frontend2.routes.test_1]
+    rule = "Host: localhost; PathPrefix: /rest"
+  [frontends.frontend1]
+  backend = "backend1"
+    [frontends.frontend1.routes.test_1]
+    rule = "Host: localhost"
+
+[backends]
+  [backends.backend1]
+    [backends.backend1.servers.server1]
+    url = "http://localhost:8089"
+  [backends.backend2]
+    [backends.backend2.servers.server1]
+    url = "https://m23demo.mobelop.com/"

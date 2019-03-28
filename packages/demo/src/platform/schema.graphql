@@ -1,0 +1,99 @@
+type FluidImage {
+    aspectRatio: Number!
+    base64: String
+    sizes: String
+    src: String
+    srcSet: String
+}
+
+type SharpImage {
+    fluid: FluidImage!
+}
+
+type Image {
+    childImageSharp: SharpImage!
+}
+
+type CartItem {
+    id: String!
+    sku: String!
+    name: String!
+    image: Image
+    qty: Float!
+    productType: String!
+}
+
+type Totals {
+    subtotal: Number!
+    tax: Number!
+    shipping: Number!
+    total: Number!
+    itemsQty: Number!
+}
+
+#####################
+# Shipping
+
+type ShippingMethod {
+    total: Number!
+    carrier_title: String!
+    carrier_code: String!
+    method_code: String!
+    method_title: String!
+}
+
+type Region {
+    id: Number!
+    code: String!
+    name: String!
+}
+
+type Country {
+    id: String!
+    full_name: String!
+    regions: [Region!]!
+}
+
+type Address {
+    city: String
+    firstName: String
+    lastName: String
+    phone: String
+    postcode: String
+    state: String
+    street: String
+    street2: String
+}
+
+##########
+
+type Mutation {
+    addCartItem(item: CartItem!): Todo
+    setCartContents(items: [CartItem!]!): void
+    setCartTotals(totals: Totals!): void
+    setShippingMethods(methods: [ShippingMethod!]!): void
+
+    setEmail(email: String!): void
+    setShippingAddress(address: Address!): void
+    setBillingAddress(address: Address!): void
+    setShippingMethod(method: String!): void
+}
+
+type Query {
+    cart: [CartItem]
+    email: String!
+    shippingMethods: [ShippingMethod!]!
+    total: Totals!
+    countries: [Country!]!
+    regions(country_id: String): [Region!]
+    shippingAddress: Address!
+    billingAddress: Address!
+}
+
+fragment CartItemFragment on CartItem {
+    id
+    name
+    image
+    price
+    qty
+}

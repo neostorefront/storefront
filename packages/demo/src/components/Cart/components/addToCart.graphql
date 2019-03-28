@@ -1,0 +1,3 @@
+mutation addItem($item: CartItem!) {
+    addCartItem(item: $item) @client
+}
